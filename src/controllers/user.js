@@ -4,8 +4,11 @@ const { User } = require("../models/User");
 exports.addUser = async (req, res) => {
     try {
       const user = new User(req.body);
+      
       const token = await user.generateAuthToken();
+      
       const savedUser = await user.save();
+      
   
       res.status(201).send({ savedUser, token });
     } catch (error) {
