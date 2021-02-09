@@ -4,6 +4,7 @@ exports.getAllRecords = async (req, res) => {
   try {
     const allRecords = await Record.find({});
     res.status(200).send(allRecords);
+    
   } catch (error) {
     console.log(error);
     res.status(500).send(error);
