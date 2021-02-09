@@ -1,10 +1,10 @@
 const { Router } = require("express");
 const recordRouter = Router();
-const { getAllRecords, addRecord, updateRecord, deleteRecord } = require("../controllers/posts");
+const { getAllRecords, addRecord, updateRecord, deleteRecord } = require("../controllers/records");
 const { auth } = require('../middleware/')
 
 recordRouter.get("/records", getAllRecords);
-recordRouter.record("/records/", auth, addRecord);
+recordRouter.post("/records",  addRecord);
 recordRouter.patch("/records/:id", auth, updateRecord);
 recordRouter.delete("/records/:id", auth, deleteRecord);
 
