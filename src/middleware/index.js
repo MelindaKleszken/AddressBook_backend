@@ -1,6 +1,9 @@
-const bcrypt = require('bcryptjs')
-const jwt = require('jsonwebtoken')
-const { User} = require('../models/User')
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+const { User} = require('../models/User');
+
+
+//use hashPassword to protect password
 exports.hashPassword = async (req, res, next) => {
     if ('password' in req.body){
         req.body.password = await bcrypt.hash(req.body.password, 8)
@@ -8,7 +11,7 @@ exports.hashPassword = async (req, res, next) => {
     next();
 };
 
-
+//authentification middleware
 exports.auth = async (req, res, next) => {
     try {
         const token = req.header("Authorization").replace("Bearer ", "")     
