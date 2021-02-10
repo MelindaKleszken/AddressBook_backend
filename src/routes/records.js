@@ -7,7 +7,7 @@ const { auth } = require('../middleware/')
 recordRouter.get("/records/", getAllRecords);
 
 // Add a record
-recordRouter.post("/records", auth, addRecord);
+recordRouter.post("/records", addRecord);
 
 // Update a record
 recordRouter.patch("/records/:id", auth, updateRecord);
