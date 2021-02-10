@@ -4,7 +4,7 @@ const { getAllRecords, addRecord, updateRecord, deleteRecord } = require("../con
 const { auth } = require('../middleware/')
 
 // Get all records
-recordRouter.get("/records", getAllRecords);
+recordRouter.get("/records/", getAllRecords);
 
 // Add a record
 recordRouter.post("/records", auth, addRecord);
