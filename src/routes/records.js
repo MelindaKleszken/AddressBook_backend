@@ -3,9 +3,16 @@ const recordRouter = Router();
 const { getAllRecords, addRecord, updateRecord, deleteRecord } = require("../controllers/records");
 const { auth } = require('../middleware/')
 
-recordRouter.get("/records", getAllRecords);
-recordRouter.post("/records",  addRecord);
+// Get all records
+recordRouter.get("/records/", getAllRecords);
+
+// Add a record
+recordRouter.post("/records", auth, addRecord);
+
+// Update a record
 recordRouter.patch("/records/:id", auth, updateRecord);
+
+// Delete a record
 recordRouter.delete("/records/:id", auth, deleteRecord);
 
 module.exports = {

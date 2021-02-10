@@ -7,7 +7,7 @@ const userRouter = Router();
 userRouter.route("/users").post(hashPassword, addUser);
 
 //route for login
-userRouter.route("/users/login").post(auth, login);
+userRouter.route("/users/login").post(login);
 
 //route for logout
 userRouter.route("/users/logout").post(auth, logout);
